@@ -12,13 +12,16 @@
     <title>Incotec</title>
 
 
-    @include('log.modal')
-    @include('log.modalvideo1')
-    @include('log.modalvideo2')
+    <?php echo $__env->make('log.modal', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+    <?php echo $__env->make('log.modalvideo1', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+    <?php echo $__env->make('log.modalvideo2', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
 
-     {!!Html::style('css/bootstrap.css')!!}
-      {!!Html::style('css/estilo.css')!!}
-      {!!Html::style('css/font-awesome.css')!!}
+     <?php echo Html::style('css/bootstrap.css'); ?>
+
+      <?php echo Html::style('css/estilo.css'); ?>
+
+      <?php echo Html::style('css/font-awesome.css'); ?>
+
 
 </head>
 
@@ -42,16 +45,17 @@
 
         <div class="col-xs-12">
 
-                @include('alerts.errors')
-                @include('alerts.success')
-                <!-- @include('alerts.request') -->
+                <?php echo $__env->make('alerts.errors', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+                <?php echo $__env->make('alerts.success', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+                <!-- <?php echo $__env->make('alerts.request', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?> -->
           <p align="center"><img src="images/log.png"  width="200" style="display: inline-block; margin: 1.0em;" ></p>
           
         </div>
 
     </div>
  
-    {!!Form::open(['route'=>'login.store', 'method'=>'POST'])!!}
+    <?php echo Form::open(['route'=>'login.store', 'method'=>'POST']); ?>
+
 
         <div class="form-group">
           <input type="email" id="email" class="form-control" placeholder="Correo electrónico" name="email" required autofocus>
@@ -65,9 +69,10 @@
    <img src="images/cargando.gif" width="175" height="50" id="cargando" style="display: none;">
          <br>
  
-   {!!Form::close()!!}
+   <?php echo Form::close(); ?>
 
-        <p class="help-block"><a href="{!!URL::to('registrarse')!!}">Regístrate como proveedor</a></p>
+
+        <p class="help-block"><a href="<?php echo URL::to('registrarse'); ?>">Regístrate como proveedor</a></p>
 
         <p class="help-block"><a href="" data-toggle="modal" data-target="#ModalContraseña">¿Olvidaste la contraseña?</a></p>
 
@@ -124,10 +129,13 @@
            <!-- jQuery -->
     <script src="js/jquery.js"></script>
 
-    {!!Html::script('js/myjs.js')!!}
-    {!!Html::script('js/myjscargando.js')!!}
+    <?php echo Html::script('js/myjs.js'); ?>
+
+    <?php echo Html::script('js/myjscargando.js'); ?>
+
     <!-- Bootstrap Core JavaScript -->
-    {!!Html::script('js/bootstrap.js')!!}
+    <?php echo Html::script('js/bootstrap.js'); ?>
+
 
 
 </html>

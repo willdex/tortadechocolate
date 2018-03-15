@@ -13,9 +13,12 @@
 
 
 
-     {!!Html::style('css/bootstrap.css')!!}
-      {!!Html::style('css/estilo.css')!!}
-      {!!Html::style('css/font-awesome.css')!!}
+     <?php echo Html::style('css/bootstrap.css'); ?>
+
+      <?php echo Html::style('css/estilo.css'); ?>
+
+      <?php echo Html::style('css/font-awesome.css'); ?>
+
 
 
 
@@ -32,9 +35,9 @@
 
          <div class="row">
           <div class="col-xs-12">
-           @include('alerts.success')
-           @include('alerts.errors')
-            @include('alerts.request')
+           <?php echo $__env->make('alerts.success', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+           <?php echo $__env->make('alerts.errors', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+            <?php echo $__env->make('alerts.request', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
           <p align="center" ><img src="images/registrarse.png"  width="200"  ></p>
           </div>
     </div>
@@ -46,16 +49,17 @@
 
     <div class="row">
           <div class="col-xs-12">
-           @include('alerts.success')
-           @include('alerts.errors')
-            @include('alerts.request')
+           <?php echo $__env->make('alerts.success', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+           <?php echo $__env->make('alerts.errors', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+            <?php echo $__env->make('alerts.request', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
           <p align="center"><img src="images/log.png"  width="200" style="display: inline-block; margin: 1.0em;" ></p>
           </div>
     </div>
  
       
        
-    {!!Form::open(['route'=>'mail.store', 'method'=>'POST'])!!}
+    <?php echo Form::open(['route'=>'mail.store', 'method'=>'POST']); ?>
+
 
         <div class="form-group">
            <input type="email" id="emailR" class="form-control" placeholder="Correo electrónico" name="emailR" required autofocus>
@@ -64,9 +68,10 @@
         <img src="images/cargando.gif" width="175" height="50" id="cargandoR" style="display: none;">
        <button class="btn btn-lg btn-primary btn-block" type="submit" id="btnR" name="btnR">ENVIAR</button> <br> 
        
-      <!--  {!!Form::submit()!!}  -->
+      <!--  <?php echo Form::submit(); ?>  -->
  
-    {!!Form::close()!!}
+    <?php echo Form::close(); ?>
+
 
         <div >
            <p class="help-block">Introduzca el código generado.</p>
@@ -114,8 +119,10 @@
     <!-- jQuery -->
     <script src="js/jquery.js"></script>
 
-    {!!Html::script('js/myjs.js')!!}
-    {!!Html::script('js/myjscargando.js')!!}
+    <?php echo Html::script('js/myjs.js'); ?>
+
+    <?php echo Html::script('js/myjscargando.js'); ?>
+
     <!-- Bootstrap Core JavaScript -->
     <script src="js/bootstrap.js"></script>
 
