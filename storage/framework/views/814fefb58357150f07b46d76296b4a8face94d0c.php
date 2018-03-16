@@ -52,7 +52,8 @@
                         <button type="submit" class="btn btn-primary"><i class="fa fa-envelope-o"></i> ENVIAR</button>
 
 
-          {!!Form::close()!!}
+          <?php echo Form::close(); ?>
+
 
           <button data-dismiss="modal" class="btn btn-danger" name="btnAdjudicarCancelarC" id="btnAdjudicarCancelarC">CANCELAR</button>
 
