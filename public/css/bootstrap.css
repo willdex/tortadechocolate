@@ -6778,3 +6778,16 @@ button.close {
   font-family: arial; 
   font-weight: bold; 
 }
+
+.progress1 {
+    display: block;
+    text-align: center;
+    width: 0;
+    height: 3px;
+    background: red;
+    transition: width .3s;
+}
+.progress1.hide {
+    opacity: 0;
+    transition: opacity 1.3s;
+}
