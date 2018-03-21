@@ -12,7 +12,7 @@
     </div>
 
  
-@if(Auth::user()->privilegio != 1)
+@if(Auth::user()->privilegio == 0)
 
   <div class="col-lg-10">  
 
@@ -63,7 +63,7 @@
 <!-- //////////////////////////////////////// A D M I N //////////////////////////////////////////////////////// -->
 
 
-@if(Auth::user()->privilegio == 1)
+@if((Auth::user()->privilegio == 1) || (Auth::user()->privilegio == 2)) 
 
   <div class="col-lg-10">  
 

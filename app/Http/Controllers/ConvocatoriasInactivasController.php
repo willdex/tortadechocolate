@@ -40,7 +40,7 @@ class ConvocatoriasInactivasController extends Controller {
             return view('convocatoriasinactivas.index',['sql'=>$sql]);  
 
         }
-        elseif (Auth::user()->privilegio==1) {
+        elseif ((Auth::user()->privilegio==1) || (Auth::user()->privilegio==2)) {
 
             $sqlAdm=DB::table('prov_cat')
             ->join('categoria','prov_cat.idcat','=','categoria.idcat')

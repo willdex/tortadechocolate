@@ -1,4 +1,4 @@
- 
+    
 <?php $__env->startSection('contenido'); ?>
 	<div class="row">
 		<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
@@ -21,10 +21,10 @@
 				<label for="correo">Correo</label>
 				<input type="text" name="correo" class="form-control" placeholder="Correo...">
 			</div>
-			<div class="form-group">
+			<!--<div class="form-group">
 				<label for="password">Password</label>
 				<input type="password" name="password" class="form-control" placeholder="Password...">
-			</div>
+			</div-->
 				<div class="form-group">
 				<label for="proveedor">Proveedor</label>
 				<input type="text" name="proveedor" class="form-control" placeholder="Proveedor...">
