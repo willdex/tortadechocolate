@@ -54,8 +54,8 @@
 
           <!-- logo for regular state and mobile devices -->
 
-          <!--<span class="logo-lg"> <img src="<?php echo e(asset('images/log.png')); ?>" class="img-responsive" style="max-width: 81%;"> </span> -->         
-          <span class="logo-lg"><b style="color: #026EAE; font-family: serif; font-size: 40px;">INCOTEC</b></span>
+        <span class="logo-lg"> <img src="<?php echo e(asset('images/log.png')); ?>" class="img-responsive" style="max-width: 81%;"> </span>         
+          <!--<span class="logo-lg"><b style="color: #026EAE; font-family: serif; font-size: 40px;"><img src="images/log.png"  width="170"  height="40"></b></span> -->
         </a>
 
         <!-- Header Navbar: style can be found in header.less -->
@@ -72,7 +72,7 @@
               <!-- User Account: style can be found in dropdown.less -->
               <li class="dropdown user user-menu">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                  <small class="bg-red">Online</small>
+                  <small class="bg-green">Online</small>
                   <span style="color: #000000"><b><?php echo e(Auth::user()->correo); ?></b></span>
                   <i class="fa fa-user-circle" aria-hidden="true" style="color: black;"></i>                              
                 </a> 
@@ -120,14 +120,15 @@
           <ul class="sidebar-menu">
             <li class="header"></li>
 
-
+          
             <li class="treeview">
               <a href="<?php echo URL::to('escritorio'); ?>">
                 <i class="fa fa-tachometer" aria-hidden="true"></i>
                 <span>DASHBOARD</span>
               </a>
             </li> 
-
+             
+           
             <li class="treeview">
               <a href="#">
 
@@ -135,15 +136,17 @@
                 <span>CONVOCATORIAS</span>
                  <i class="fa fa-angle-left pull-right" style="color: white; font-size: 18px;"></i>
               </a>
+              
              
               <ul class="treeview-menu">
                  <li><a href="<?php echo URL::to('convocatoriasaprobadas'); ?>"><i class="fa fa-circle-o"></i> Adjudicadas </a></li>
                 <li><a href="<?php echo URL::to('convocatoriasactivas'); ?>"><i class="fa fa-circle-o"></i> Activas </a></li>
                 <li><a href="<?php echo URL::to('convocatoriasinactivas'); ?>"><i class="fa fa-circle-o"></i> Inactivas </a></li>
               </ul>
-            </li>  
+            </li> 
 
-            <!--li class="treeview">
+
+             <!--li class="treeview">
               <a href="#">
                 <i class="fa fa-clipboard" aria-hidden="true"></i>
                 <span>MIS PROPUESTAS</span>
@@ -157,17 +160,30 @@
               </a>
             </li--> 
 
-
-<?php if(Auth::user()->privilegio == 1): ?>
-
+<?php if((Auth::user()->privilegio == 1) || (Auth::user()->privilegio == 2)): ?>
+    <?php if(Auth::user()->privilegio !=2): ?>
             <li class="treeview">
               <a href="<?php echo URL::to('proveedores'); ?>">
                 <i class="fa fa-users" aria-hidden="true"></i>
                 <span>PROVEEDORES</span>
               </a>
+            </li> 
+    <?php endif; ?>
+            <li class="treeview">
+              <a href="<?php echo URL::to('registrosproveedor'); ?>">
+                <i class="fa fa-clipboard" aria-hidden="true"></i>
+                <span>REGISTRO PROVEEDOR</span>
+              </a>
             </li>   
 
  <?php endif; ?>  
+
+            <li class="treeview">
+              <a href="<?php echo URL::to('perfil'); ?>">
+                <i class="fa fa-key" aria-hidden="true"></i>
+                <span>CAMBIAR CONTRASEÑA</span>
+              </a>
+            </li>
 
             <li class="treeview">
               <a href="<?php echo URL::to('perfil'); ?>">
@@ -176,6 +192,7 @@
               </a>
             </li>
 
+             
 <?php if(Auth::user()->privilegio != 1): ?>
 
             <li class="treeview">
@@ -300,6 +317,8 @@
 
         <?php echo Html::script('js/jquery.js'); ?>
 
+
+        <?php echo $__env->yieldPushContent('scripts'); ?>
 
         <?php echo Html::script('js/myjs.js'); ?>
 

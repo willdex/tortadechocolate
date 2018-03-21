@@ -56,8 +56,7 @@ Route::post('adjuntarcategoria','RegistrosProveedorController@adjuntar_categoria
 Route::get('form_enviar_correo', 'CorreoController@crear');
 Route::post('enviar_correo', 'CorreoController@enviar');
 Route::post('cargar_archivo_correo', 'CorreoController@store');
-
-
+Route::get('/logout', 'Auth\LoginController@logout');
 
 
 
