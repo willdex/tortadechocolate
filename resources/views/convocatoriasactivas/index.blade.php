@@ -4,9 +4,10 @@
 @include('convocatoriasactivas.modal')
 @include('convocatoriasactivas.modalP')
 @include('convocatoriasactivas.modalA')
-
+@include('convocatoriasactivas.modalN')
  
-@if(Auth::user()->privilegio == 1)
+ 
+@if((Auth::user()->privilegio == 1))
 
  
   <div class="row">
@@ -54,7 +55,7 @@
         <center> <h2 style="text-transform: uppercase; font-weight: bold;"> Convocatorias Activas </h2> </center>
 
 
-@if(Auth::user()->privilegio != 1)
+@if(Auth::user()->privilegio == 0)
 
       <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
         <div class="table-responsive" style="overflow-x:inherit">
@@ -96,7 +97,7 @@
 
 
 
-@if(Auth::user()->privilegio == 1)
+@if((Auth::user()->privilegio == 1) || (Auth::user()->privilegio == 2))
 
 
     
@@ -156,5 +157,5 @@
   </div>
 
   {!!Html::script('js/jsmodal.js')!!}
-
+ 
 @endsection

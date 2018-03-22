@@ -42,7 +42,7 @@ class ConvocatoriasActivasController extends Controller {
             return view('convocatoriasactivas.index',['sql'=>$sql]);  
 
         }
-        elseif (Auth::user()->privilegio==1) {
+        elseif ((Auth::user()->privilegio==1)||(Auth::user()->privilegio==2)) {
 
             $sqlAdm=DB::table('prov_cat')
             ->join('categoria','prov_cat.idcat','=','categoria.idcat')
@@ -61,7 +61,7 @@ class ConvocatoriasActivasController extends Controller {
 
     function parciales() {
 
-        if(Auth::user()->privilegio==1)
+        if((Auth::user()->privilegio==1) || (Auth::user()->privilegio==2))
         {
 
             $sqlAdm=DB::table('categoria')

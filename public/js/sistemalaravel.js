@@ -50,7 +50,7 @@ $(document).on("submit",".formarchivo",function(e){
             },
             //si ha ocurrido un error
             error: function(data){
-               alert("Mensaje Enviado") ;
+               
                 
             }
         });

@@ -76,10 +76,10 @@
 				<label for="correo">Correo</label>
 				<input type="text" name="correo" class="form-control" value="<?php echo e($proveedor->correo); ?>" placeholder="Correo...">
 			</div>
-			<div class="form-group">
+			<!--<div class="form-group">
 				<label for="password">Password</label>
 				<input type="text" name="password" class="form-control" value="<?php echo e($proveedor->password); ?>"  placeholder="Password..." >
-			</div>
+			</div-->
 				<div class="form-group">
 				<label for="proveedor">Proveedor</label>
 				<input type="text" name="proveedor" class="form-control" value="<?php echo e($proveedor->proveedor); ?>" placeholder="Proveedor...">

@@ -11,9 +11,9 @@
 		</div>
  
 	</div> 
-
+	
 	<div class="row">
-		<div class="col-lg-12 col-md-12 col-xs-12">
+		<div class="col-lg-12 col-md-12 col-sm-8 col-xs-12">
 			<div class="table-responsive">
 				<table class="table table-striped table-bordered table-condensed table-hover">
 					<thead>
@@ -23,9 +23,9 @@
 						<th>Proveedor</th>
 						<th>Telefono</th>
 						<th>Direccion</th>
-					<?php if(Auth::user()->privilegio != 2): ?>
+					
 						<th>Opciones</th>
-					<?php endif; ?>
+					
 					</thead>
 					<?php foreach($proveedores as $pro): ?>
 					<tr>
@@ -35,17 +35,18 @@
 						<td><?php echo e($pro->proveedor); ?></td>
 						<td><?php echo e($pro->telefono); ?></td>
 						<td><?php echo e($pro->direccion); ?></td>
-					<?php if(Auth::user()->privilegio != 2): ?>	
+					
 						<td>
+						<?php if(Auth::user()->privilegio != 2): ?>	
 							<a href="<?php echo e(URL::action('RegistrosProveedorController@edit',$pro->id)); ?>"><button class="btn btn-primary">Editar</button></a>
-
+						<?php endif; ?>
 							<button class='btn btn-primary' style="font-size: 14px; background-color: green;" data-toggle="modal" data-target="#ModalAdjuntarCat" data-id="<?php echo e($pro->id); ?>" data-p="<?php echo e($pro->proveedor); ?>">ADD Categoria</button>
 
 							<a href=""><button class="btn btn-danger" >Detalle</button></a>
 
 							 
 						</td>
-					<?php endif; ?>
+					
 					</tr>
 					<?php endforeach; ?>
 				</table>

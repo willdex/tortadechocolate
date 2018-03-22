@@ -2,6 +2,7 @@
 <?php $__env->startSection('contenido'); ?> 
 
 <?php echo $__env->make('escritorio.modal', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+<?php echo $__env->make('convocatoriasactivas.modalA', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
 
 
 
@@ -139,7 +140,7 @@
                     <div class="icon">
                       <i class="fa fa-file-text-o" aria-hidden="true"></i>
                     </div>
-                    <a href="<?php echo URL::to('convocatoriasactivas'); ?>" class="small-box-footer" style="font-size: 17px;">Ver Todas <i class="fa fa-plus-circle" aria-hidden="true"></i></a>
+                    <a href="<?php echo URL::to('convocatoriasactivas'); ?>" class="small-box-footer" style="font-size: 17px;" data-toggle="modal" data-target="#ModalAdjuntar">Ver Todas <i class="fa fa-plus-circle" aria-hidden="true"></i></a>
                   </div>
                   
                 </div>
@@ -221,5 +222,6 @@
 
 
 <?php $__env->stopSection(); ?>
+
 
 <?php echo $__env->make('layouts.cpanelp', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

@@ -119,7 +119,7 @@
               </a>
             </li> 
              
-           
+            
             <li class="treeview">
               <a href="#">
 
@@ -170,9 +170,9 @@
  @endif  
 
             <li class="treeview">
-              <a href="{!!URL::to('perfil')!!}">
+              <a href="{{URL('registrosproveedor/password')}}">
                 <i class="fa fa-key" aria-hidden="true"></i>
-                <span>CAMBIAR CONTRASEÑA</span>
+                <span>CAMBIAR PASSWORD</span>
               </a>
             </li>
 
@@ -184,7 +184,7 @@
             </li>
 
              
-@if(Auth::user()->privilegio != 1)
+@if(Auth::user()->privilegio == 0)
 
             <li class="treeview">
               <a href="{!!URL::to('ayuda')!!}">
@@ -237,7 +237,7 @@
                     <div class="row">
                       <div class="col-md-12">
 
-
+                  @if(Auth::user()->privilegio == 0)
                       <?php  $cat = DB::select('select categoria.idcat, nombre FROM prov_cat, categoria, proveedor WHERE categoria.idcat=prov_cat.idcat and proveedor.id=prov_cat.id AND proveedor.id='.Auth::user()->id); ?>
 
                         @foreach($cat as $mov)
@@ -259,7 +259,7 @@
                           </a>
 
                         @endforeach
-
+                   @endif 
                         
  
                     <br><br><br>

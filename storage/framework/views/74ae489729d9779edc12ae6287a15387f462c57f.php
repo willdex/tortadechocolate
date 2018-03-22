@@ -1,4 +1,3 @@
-  
 <?php $__env->startSection('contenido'); ?> 
 
 <?php echo $__env->make('convocatoriasactivas.modal', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
@@ -58,6 +57,7 @@
 
 <?php endif; ?> 
 
+   <script src="js/sistemalaravel.js"></script>
 
 
 <!-- //////////////////////////////////////// A D M I N //////////////////////////////////////////////////////// -->
@@ -120,5 +120,6 @@
   </div>
 
 <?php $__env->stopSection(); ?>
+
 
 <?php echo $__env->make('layouts.cpanelp', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

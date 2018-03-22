@@ -1,4 +1,4 @@
-  @extends ('layouts.cpanelp')
+@extends ('layouts.cpanelp')
 @section ('contenido') 
 
 @include('convocatoriasactivas.modal')
@@ -58,6 +58,7 @@
 
 @endif 
 
+   <script src="js/sistemalaravel.js"></script>
 
 
 <!-- //////////////////////////////////////// A D M I N //////////////////////////////////////////////////////// -->
@@ -120,3 +121,4 @@
   </div>
 
 @endsection
+

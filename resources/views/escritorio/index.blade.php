@@ -2,6 +2,7 @@
 @section ('contenido') 
 
 @include('escritorio.modal')
+@include('convocatoriasactivas.modalA')
 
 
 
@@ -137,7 +138,7 @@
                     <div class="icon">
                       <i class="fa fa-file-text-o" aria-hidden="true"></i>
                     </div>
-                    <a href="{!!URL::to('convocatoriasactivas')!!}" class="small-box-footer" style="font-size: 17px;">Ver Todas <i class="fa fa-plus-circle" aria-hidden="true"></i></a>
+                    <a href="{!!URL::to('convocatoriasactivas')!!}" class="small-box-footer" style="font-size: 17px;" data-toggle="modal" data-target="#ModalAdjuntar">Ver Todas <i class="fa fa-plus-circle" aria-hidden="true"></i></a>
                   </div>
                   
                 </div>
@@ -219,3 +220,4 @@
 
 
 @endsection
+

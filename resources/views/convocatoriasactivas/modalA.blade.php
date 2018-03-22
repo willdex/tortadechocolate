@@ -13,9 +13,11 @@
 
             
             <div class="col-md-12">
+
+
             <form  id="f_enviar_correo" name="f_enviar_correo"  action="enviar_correo"  class="formarchivo" enctype="multipart/form-data" method="post" >
 
-             <input type="hidden" name="_token" id="_token"  value="<?= csrf_token(); ?>"> 
+             <input type="hidden" name="_token" id="_token"  value="{{ csrf_token() }}"> 
 
                   <div class="box box-primary">
                     <div class="box-header with-border" align="center">
@@ -38,6 +40,7 @@
                         <div class="btn btn-default btn-file">
                           <i class="fa fa-paperclip" ></i> Adjuntar Archivo
                           <input type="file"  id="file" name="file" class="email_archivo" value="1" >
+
                         </div>
                         <p class="help-block"  >Max. 20MB</p>
                         <div id="texto_notificacion"><span id="display"></span>
@@ -49,7 +52,8 @@
                     <div class="box-footer">
                       <div class="pull-right">
                      
-                        <button type="submit" class="btn btn-primary"><i class="fa fa-envelope-o"></i> ENVIAR</button>
+                        <button type="submit" class="btn btn-primary" data-toggle="modal" data-target="#ModalNoti"><i class="fa fa-envelope-o"></i> ENVIAR</button>
+                        <img src="images/cargando.gif" width="175" height="50" id="cargando" style="display: none;">
 
 
           {!!Form::close()!!}
@@ -66,7 +70,10 @@
           </div><!-- /.row -->
               
    <script src="js/sistemalaravel.js"></script>
+ <script src="js/jquery.js"></script>
 
+    {!!Html::script('js/myjs.js')!!}
+    {!!Html::script('js/myjscargando.js')!!}
     <script>
      
       function activareditor(){   

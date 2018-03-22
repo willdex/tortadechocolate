@@ -48,6 +48,8 @@ Route::resource('proveedores','ProveedoresController');
 //--registrar proveedor ruta para REGISTRO DE PROVEEDORES 15-02-18 !!Daniel Alanis
 Route::resource('registrosproveedor','RegistrosProveedorController');
 ///
+Route::get('registrosproveedor/password','RegistrosProveedorController@password');
+Route::post('registrosproveedor/updatepassword','RegistrosProveedorController@updatePassword');
 
 Route::post('adjuntarcategoria','RegistrosProveedorController@adjuntar_categoria');
 
@@ -56,7 +58,7 @@ Route::post('adjuntarcategoria','RegistrosProveedorController@adjuntar_categoria
 Route::get('form_enviar_correo', 'CorreoController@crear');
 Route::post('enviar_correo', 'CorreoController@enviar');
 Route::post('cargar_archivo_correo', 'CorreoController@store');
-Route::get('/logout', 'Auth\LoginController@logout');
+//Route::get('/logout', 'Auth\LoginController@logout');
 
 
 

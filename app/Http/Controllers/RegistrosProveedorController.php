@@ -19,6 +19,9 @@ use Response;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Crypt;
 
+use Hash;
+use Validator;
+
 class RegistrosProveedorController extends Controller
 {
     public function __construct(){
@@ -50,7 +53,7 @@ class RegistrosProveedorController extends Controller
                       
                 $pass = substr(MD5(rand(5, 100)), 0, 8);
                      
-                $proveedor->password= Crypt::encrypt($pass);
+                $proveedor->password= bcrypt($pass);
 
                 // para desencriptar--
                 // Crypt::decrypt($pass);
@@ -61,16 +64,6 @@ class RegistrosProveedorController extends Controller
             	$proveedor->privilegio='0';
             	$proveedor->save();
 
-                $idcat = $request->get('idcat');
-             
-                $cont = 0;
-                while($cont < count($idcat)){
-                    $prov_cat = new Prov_Cat();
-                    $prov_cat->id = $proveedor->id;
-                    $prov_cat->idcat = $idcat[$cont];
-                    $prov_cat->save();
-                    $cont=$cont+1;
-                }
 
             DB::commit();
         }catch(\Exception $e){
@@ -79,26 +72,14 @@ class RegistrosProveedorController extends Controller
     	return Redirect::to('registrosproveedor');
 
     }
-    public function show($id){
-        $proveedor=DB::table('proveedor')
-            ->where('id','=',$id)
-            ->first();
-        $prov_cat=DB::table('prov_cat p')
-            ->join('categoria c','c.idcat','=','p.idcat')
-            ->select('c.idcat','c.nombre')
-            ->where('p.id','=',$id) 
-            ->get();
-
-
-    	return view("registrosproveedor.show",["proveedor"=>$proveedor,"prov_cat"=>$prov_cat]);
-    }
+   
 
 
 
 
     public function edit($id){
         return view("registrosproveedor.edit",["proveedor"=>RegProveedor::findOrFail($id)]);
-    }
+    } 
     public function update(RegistrosProveedorFormRequest $request,$id){
     	$proveedor=RegProveedor::findOrFail($id);
     	$proveedor->correo=$request->get('correo');
@@ -108,6 +89,45 @@ class RegistrosProveedorController extends Controller
     	$proveedor->direccion=$request->get('direccion');
     	$proveedor->update();
     	return Redirect::to('registrosproveedor');
+    }
+
+    public function password(){
+        return View('registrosproveedor.password');
+    }
+
+    public function show(){
+        return View('registrosproveedor.password');
+    }
+
+    public function updatePassword(Request $request){
+        $rules = [
+            'mypassword' => 'required',
+            'password' => 'required|confirmed|min:6|max:18',
+        ];
+        $messages = [
+            'mypassword.required' => 'El campo es requerido',
+            'password.required' => 'El campo es requerido',
+            'password.confirmed' => 'Los passwords no coinciden',
+            'password.min' => 'El mínimo permitido son 6 caracteres',
+            'password.max' => 'El máximo permitido son 18 caracteres',
+        ];
+        $validator = Validator::make($request->all(), $rules, $messages);
+
+        if ($validator->fails()){
+            return redirect('registrosproveedor/password')->withErrors($validator);
+        }
+        else{
+            if (Hash::check($request->get('mypassword'),Auth::user()->password)){
+                DB::table('proveedor')->where('id', Auth::user()->id)->update(['password' => bcrypt($request->get('password')) ]);
+
+                return redirect('registrosproveedor/password')->with('message', 'Password cambiado con éxito');
+            }
+            else
+            {
+                return redirect('registrosproveedor/password')->with('message', 'Credenciales incorrectas');
+            }
+        }
+
     }
 
     public function adjuntar_categoria(Request $request){

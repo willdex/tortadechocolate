@@ -36,7 +36,7 @@ class ConvocatoriasAprobadasController extends Controller {
             ->paginate(10);        
             return view('convocatoriasaprobadas.index',['sql'=>$sql]);  
         }
-        elseif (Auth::user()->privilegio==1) {
+        elseif ((Auth::user()->privilegio==1) || (Auth::user()->privilegio==2)) {
             $sqlAdm=DB::table('categoria')
             ->join('convocatoria','categoria.idcat','=','convocatoria.idcat')
             ->join('prov_conv','convocatoria.idpublic','=','prov_conv.idpublic')

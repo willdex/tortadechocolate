@@ -13,7 +13,7 @@
         
         <center> <h2 style="text-transform: uppercase; font-weight: bold;"> Convocatorias Adjudicadas </h2> </center>
 
-<?php if(Auth::user()->privilegio != 1): ?>
+<?php if(Auth::user()->privilegio == 0): ?>
 
       <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
         <div class="table-responsive" style="overflow-x:inherit">
@@ -48,7 +48,7 @@
 
 
 
-<?php if(Auth::user()->privilegio == 1): ?>
+<?php if((Auth::user()->privilegio == 1) || (Auth::user()->privilegio == 2)): ?>
 
     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
       <div class="table-responsive" style="overflow-x:inherit">
@@ -81,7 +81,7 @@
     </div>
 
 
-
+ 
 <?php endif; ?> 
 
   </div>

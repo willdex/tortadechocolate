@@ -4,9 +4,9 @@
 <?php echo $__env->make('convocatoriasactivas.modal', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
 <?php echo $__env->make('convocatoriasactivas.modalP', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
 <?php echo $__env->make('convocatoriasactivas.modalA', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
-
  
-<?php if(Auth::user()->privilegio == 1): ?>
+ 
+<?php if((Auth::user()->privilegio == 1)): ?>
 
  
   <div class="row">
@@ -54,7 +54,7 @@
         <center> <h2 style="text-transform: uppercase; font-weight: bold;"> Convocatorias Activas </h2> </center>
 
 
-<?php if(Auth::user()->privilegio != 1): ?>
+<?php if(Auth::user()->privilegio == 0): ?>
 
       <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
         <div class="table-responsive" style="overflow-x:inherit">
@@ -96,7 +96,7 @@
 
 
 
-<?php if(Auth::user()->privilegio == 1): ?>
+<?php if((Auth::user()->privilegio == 1) || (Auth::user()->privilegio == 2)): ?>
 
 
     
@@ -157,7 +157,7 @@
 
   <?php echo Html::script('js/jsmodal.js'); ?>
 
-
+ 
 <?php $__env->stopSection(); ?>
 
 <?php echo $__env->make('layouts.cpanelp', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
