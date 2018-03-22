@@ -45,7 +45,7 @@
                     <div class="box-footer">
                       <div class="pull-right">
                      
-                        <button type="submit" class="btn btn-primary"><i class="fa fa-envelope-o" data-toggle="modal" data-target="#modalA"></i> Aceptar</button>
+                        <button type="submit" class="btn btn-primary"><i class="fa fa-envelope-o"></i> Aceptar</button>
                         <img src="images/cargando.gif" width="175" height="50" id="cargando" style="display: none;">
 
 

@@ -30,6 +30,7 @@ Route::get("convocatorias/{id}","ConvocatoriasController@covocatorias");
 
 Route::resource('convocatorias','ConvocatoriasController');
 
+
 Route::resource("perfil","PerfilController");
 
 Route::resource('ayuda','AyudaController');

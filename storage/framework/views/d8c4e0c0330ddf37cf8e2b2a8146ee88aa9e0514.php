@@ -8,21 +8,30 @@
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
         
 
-        {!!Html::script('js/jQuery-2.1.4.min.js')!!}
-        {!!Html::style('css/bootstrap-datetimepicker.css')!!}
+        <?php echo Html::script('js/jQuery-2.1.4.min.js'); ?>
+
+        <?php echo Html::style('css/bootstrap-datetimepicker.css'); ?>
+
         
         <!-- Bootstrap 3.3.5 -->
-        {!!Html::style('css/bootstrap.css')!!}
+        <?php echo Html::style('css/bootstrap.css'); ?>
+
         <!-- Font Awesome -->
-        {!!Html::style('css/font-awesome.css')!!}
+        <?php echo Html::style('css/font-awesome.css'); ?>
+
         <!-- Theme style -->
-        {!!Html::style('css/AdminLTE.css')!!}
+        <?php echo Html::style('css/AdminLTE.css'); ?>
+
         <!-- AdminLTE Skins. Choose a skin from the css/skins
              folder instead of downloading all of them to reduce the load. -->
-        {!!Html::style('css/_all-skins.css')!!}
-        {!!Html::style('css/bootstrap-select.min.css')!!}
-        {!!Html::style('css/alertify.css')!!}
-        {!!Html::style('css/default.css')!!}
+        <?php echo Html::style('css/_all-skins.css'); ?>
+
+        <?php echo Html::style('css/bootstrap-select.min.css'); ?>
+
+        <?php echo Html::style('css/alertify.css'); ?>
+
+        <?php echo Html::style('css/default.css'); ?>
+
 
     <!-- AdminLTE Skins. Choose a skin from the css/skins
          folder instead of downloading all of them to reduce the load. -->
@@ -45,7 +54,7 @@
 
           <!-- logo for regular state and mobile devices -->
 
-        <span class="logo-lg"> <img src="{{asset('images/log.png')}}" class="img-responsive" style="max-width: 81%;"> </span>         
+        <span class="logo-lg"> <img src="<?php echo e(asset('images/log.png')); ?>" class="img-responsive" style="max-width: 81%;"> </span>         
           <!--<span class="logo-lg"><b style="color: #026EAE; font-family: serif; font-size: 40px;"><img src="images/log.png"  width="170"  height="40"></b></span> -->
         </a>
 
@@ -64,7 +73,7 @@
               <li class="dropdown user user-menu">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                   <small class="bg-green">Online</small>
-                  <span style="color: #000000"><b>{{Auth::user()->correo}}</b></span>
+                  <span style="color: #000000"><b><?php echo e(Auth::user()->correo); ?></b></span>
                   <i class="fa fa-user-circle" aria-hidden="true" style="color: black;"></i>                              
                 </a> 
 
@@ -81,7 +90,7 @@
                     
                     <div class="pull-right">
                       
-                        <a href="{!!URL::to('logout')!!}" style=""><button type="button" class="btn btn-danger"><b><i class="fa fa-power-off"></i> SALIR</b> </button></a> 
+                        <a href="<?php echo URL::to('logout'); ?>" style=""><button type="button" class="btn btn-danger"><b><i class="fa fa-power-off"></i> SALIR</b> </button></a> 
                       
                     </div>
                   </li>
@@ -92,7 +101,7 @@
               <!-- User Account: style can be found in dropdown.less -->
               <!--li class="dropdown user user-menu">
       
-                  <a href="{!!URL::to('logout')!!}" style="background-color: red; margin-right: 5px;"><button type="button" class="btn btn-danger"><b><i class="fa fa-power-off"></i> SALIR</b>  </button></a>  
+                  <a href="<?php echo URL::to('logout'); ?>" style="background-color: red; margin-right: 5px;"><button type="button" class="btn btn-danger"><b><i class="fa fa-power-off"></i> SALIR</b>  </button></a>  
 
               </li -->
 
@@ -113,7 +122,7 @@
 
           
             <li class="treeview">
-              <a href="{!!URL::to('escritorio')!!}">
+              <a href="<?php echo URL::to('escritorio'); ?>">
                 <i class="fa fa-tachometer" aria-hidden="true"></i>
                 <span>DASHBOARD</span>
               </a>
@@ -130,9 +139,9 @@
               
              
               <ul class="treeview-menu">
-                 <li><a href="{!!URL::to('convocatoriasaprobadas')!!}"><i class="fa fa-circle-o"></i> Adjudicadas </a></li>
-                <li><a href="{!!URL::to('convocatoriasactivas')!!}"><i class="fa fa-circle-o"></i> Activas </a></li>
-                <li><a href="{!!URL::to('convocatoriasinactivas')!!}"><i class="fa fa-circle-o"></i> Inactivas </a></li>
+                 <li><a href="<?php echo URL::to('convocatoriasaprobadas'); ?>"><i class="fa fa-circle-o"></i> Adjudicadas </a></li>
+                <li><a href="<?php echo URL::to('convocatoriasactivas'); ?>"><i class="fa fa-circle-o"></i> Activas </a></li>
+                <li><a href="<?php echo URL::to('convocatoriasinactivas'); ?>"><i class="fa fa-circle-o"></i> Inactivas </a></li>
               </ul>
             </li> 
 
@@ -151,49 +160,49 @@
               </a>
             </li--> 
 
-@if((Auth::user()->privilegio == 1) || (Auth::user()->privilegio == 2))
-    @if(Auth::user()->privilegio !=2)
+<?php if((Auth::user()->privilegio == 1) || (Auth::user()->privilegio == 2)): ?>
+    <?php if(Auth::user()->privilegio !=2): ?>
             <li class="treeview">
-              <a href="{!!URL::to('proveedores')!!}">
+              <a href="<?php echo URL::to('proveedores'); ?>">
                 <i class="fa fa-users" aria-hidden="true"></i>
                 <span>PROVEEDORES</span>
               </a>
             </li> 
-    @endif
+    <?php endif; ?>
             <li class="treeview">
-              <a href="{!!URL::to('registrosproveedor')!!}">
+              <a href="<?php echo URL::to('registrosproveedor'); ?>">
                 <i class="fa fa-clipboard" aria-hidden="true"></i>
                 <span>REGISTRO PROVEEDOR</span>
               </a>
             </li>   
 
- @endif  
+ <?php endif; ?>  
 
             <li class="treeview">
-              <a href="{{URL('registrosproveedor/password')}}">
+              <a href="<?php echo e(URL('registrosproveedor/password')); ?>">
                 <i class="fa fa-key" aria-hidden="true"></i>
                 <span>CAMBIAR PASSWORD</span>
               </a>
             </li>
 
             <li class="treeview">
-              <a href="{!!URL::to('perfil')!!}">
+              <a href="<?php echo URL::to('perfil'); ?>">
                 <i class="fa fa-user" aria-hidden="true"></i>
                 <span>PERFILES</span>
               </a>
             </li>
 
              
-@if(Auth::user()->privilegio == 0)
+<?php if(Auth::user()->privilegio == 0): ?>
 
             <li class="treeview">
-              <a href="{!!URL::to('ayuda')!!}">
+              <a href="<?php echo URL::to('ayuda'); ?>">
                 <i class="fa fa-question-circle" style="font-size: 18px;" aria-hidden="true"></i>
                 <span>AYUDA</span>
               </a>
             </li>   
 
- @endif      
+ <?php endif; ?>      
 
              <!--li>
               <a href="#">
@@ -237,29 +246,29 @@
                     <div class="row">
                       <div class="col-md-12">
 
-                  @if(Auth::user()->privilegio == 0)
+                  <?php if(Auth::user()->privilegio == 0): ?>
                       <?php  $cat = DB::select('select categoria.idcat, nombre FROM prov_cat, categoria, proveedor WHERE categoria.idcat=prov_cat.idcat and proveedor.id=prov_cat.id AND proveedor.id='.Auth::user()->id); ?>
 
-                        @foreach($cat as $mov)
+                        <?php foreach($cat as $mov): ?>
 
                           <?php $ruta="convocatorias/".$mov->idcat;?>
 
-                          <a href="{!!URL::to($ruta)!!}">
+                          <a href="<?php echo URL::to($ruta); ?>">
 
                             <?php $c = DB::select('select COUNT(*) as nro FROM convocatoria WHERE estado<>"inactiva" AND idcat='.$mov->idcat); ?>
 
-                            @foreach($c as $mov2)
+                            <?php foreach($c as $mov2): ?>
 
                             <button class="btn-sm btn-primary" type="button" style="font-size: 13px;">
-                              {{$mov->nombre}} <span class="badge">{{$mov2->nro}}</span>
+                              <?php echo e($mov->nombre); ?> <span class="badge"><?php echo e($mov2->nro); ?></span>
                             </button>
 
-                            @endforeach
+                            <?php endforeach; ?>
 
                           </a>
 
-                        @endforeach
-                   @endif 
+                        <?php endforeach; ?>
+                   <?php endif; ?> 
                         
  
                     <br><br><br>
@@ -273,7 +282,7 @@
 
                           <!--Contenido-->
 
-                              @yield('contenido')   
+                              <?php echo $__env->yieldContent('contenido'); ?>   
                                                                
                            <!--Fin Contenido-->
 
@@ -302,34 +311,47 @@
   </div>
   
 <div>
-  @include('alerts.cargando')
+  <?php echo $__env->make('alerts.cargando', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
 </div>
 
 
-        {!!Html::script('js/jquery.js')!!}
+        <?php echo Html::script('js/jquery.js'); ?>
 
-        @stack('scripts')
 
-        {!!Html::script('js/myjs.js')!!}
+        <?php echo $__env->yieldPushContent('scripts'); ?>
 
-        {!!Html::script('js/myjscargando.js')!!}
+        <?php echo Html::script('js/myjs.js'); ?>
 
-        {!!Html::script('js/jsmodal.js')!!}
 
-        {!!Html::script('js/moment.js')!!}
-        {!!Html::script('js/moment-with-locales.min.js')!!}
-        {!!Html::script('js/numerosmasdecimal.js')!!}
+        <?php echo Html::script('js/myjscargando.js'); ?>
+
+
+        <?php echo Html::script('js/jsmodal.js'); ?>
+
+
+        <?php echo Html::script('js/moment.js'); ?>
+
+        <?php echo Html::script('js/moment-with-locales.min.js'); ?>
+
+        <?php echo Html::script('js/numerosmasdecimal.js'); ?>
+
 
         <!-- Bootstrap 3.3.5 -->
-        {!!Html::script('js/bootstrap.js')!!}
-        {!!Html::script('js/bootstrap-select.min.js')!!}
-        {!!Html::script('js/alertify.js')!!}
+        <?php echo Html::script('js/bootstrap.js'); ?>
+
+        <?php echo Html::script('js/bootstrap-select.min.js'); ?>
+
+        <?php echo Html::script('js/alertify.js'); ?>
+
 
         <!-- AdminLTE App -->
-        {!!Html::script('js/app.js')!!}
+        <?php echo Html::script('js/app.js'); ?>
+
               
-        {!!Html::script('js/bootstrap-datetimepicker.min.js')!!}
-       {!!Html::script('js/sistemalaravel.js')!!}
+        <?php echo Html::script('js/bootstrap-datetimepicker.min.js'); ?>
+
+       <?php echo Html::script('js/sistemalaravel.js'); ?>
+
 
   </body>
 </html>

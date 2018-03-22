@@ -1,9 +1,9 @@
-@include('alerts.cargando')
+<?php echo $__env->make('alerts.cargando', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
 
-@include('convocatoriasactivas.modalN')
-@extends('layouts.cpanelp')
+<?php echo $__env->make('convocatoriasactivas.modalN', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
 
-  @section('contenido')
+
+  <?php $__env->startSection('contenido'); ?>
 
 <!-- Modal -->
 <div id="ModalAdjuntar">
@@ -23,7 +23,7 @@
 
             <form  id="f_enviar_correo" name="f_enviar_correo"  action="enviar_correo"  class="formarchivo" enctype="multipart/form-data" method="post" >
 
-             <input type="hidden" name="_token" id="_token"  value="{{ csrf_token() }}"> 
+             <input type="hidden" name="_token" id="_token"  value="<?php echo e(csrf_token()); ?>"> 
 
                   <div class="box box-primary">
                     <div class="box-header with-border" align="center">
@@ -62,7 +62,8 @@
                         <img src="images/cargando.gif" width="175" height="50" id="cargando" style="display: none;">
 
 
-          {!!Form::close()!!}
+          <?php echo Form::close(); ?>
+
 
           <button data-dismiss="modal" class="btn btn-danger" name="btnAdjudicarCancelarC" id="btnAdjudicarCancelarC">CANCELAR</button>
 
@@ -78,8 +79,10 @@
    <script src="js/sistemalaravel.js"></script>
  <script src="js/jquery.js"></script>
 
-    {!!Html::script('js/myjs.js')!!}
-    {!!Html::script('js/myjscargando.js')!!}
+    <?php echo Html::script('js/myjs.js'); ?>
+
+    <?php echo Html::script('js/myjscargando.js'); ?>
+
     <script>
      
       function activareditor(){   
@@ -101,4 +104,6 @@
 
 
 
-@endsection
+<?php $__env->stopSection(); ?>
+
+<?php echo $__env->make('layouts.cpanelp', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

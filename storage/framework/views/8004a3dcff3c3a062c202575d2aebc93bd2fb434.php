@@ -1,12 +1,6 @@
-@include('alerts.cargando')
-
-@include('convocatoriasactivas.modalN')
-@extends('layouts.cpanelp')
-
-  @section('contenido')
-
 <!-- Modal -->
-<div id="ModalAdjuntar">
+<div id="ModalAdjuntar" data-backdrop="static" class="modal fade" role="dialog">
+  <div class="modal-dialog modal-md">
     <!-- Modal content-->
     <div class="modal-content">
 
@@ -18,12 +12,12 @@
              <div class="row">
 
             
-            <div class="col-md-12">
+            <div class="col-md-12"> 
 
 
             <form  id="f_enviar_correo" name="f_enviar_correo"  action="enviar_correo"  class="formarchivo" enctype="multipart/form-data" method="post" >
 
-             <input type="hidden" name="_token" id="_token"  value="{{ csrf_token() }}"> 
+             <input type="hidden" name="_token" id="_token"  value="<?php echo e(csrf_token()); ?>"> 
 
                   <div class="box box-primary">
                     <div class="box-header with-border" align="center">
@@ -38,7 +32,7 @@
                         <input class="form-control" placeholder="Asunto:" id="asunto" name="asunto">
                       </div>-->
                       <div class="form-group">
-                        <textarea id="contenido_mail" name="contenido_mail" class="form-control" style="height: 200px" placeholder="escriba aquí...">
+                        <textarea id="contenido_mail" name="contenido_mail" class="form-control" style="height: 200px">
                          
                         </textarea>
                       </div>
@@ -62,7 +56,8 @@
                         <img src="images/cargando.gif" width="175" height="50" id="cargando" style="display: none;">
 
 
-          {!!Form::close()!!}
+          <?php echo Form::close(); ?>
+
 
           <button data-dismiss="modal" class="btn btn-danger" name="btnAdjudicarCancelarC" id="btnAdjudicarCancelarC">CANCELAR</button>
 
@@ -72,14 +67,16 @@
                   </div><!-- /. box -->
 
               </form>
-            <!-- /.col -->
+            </div><!-- /.col -->
           </div><!-- /.row -->
               
    <script src="js/sistemalaravel.js"></script>
  <script src="js/jquery.js"></script>
 
-    {!!Html::script('js/myjs.js')!!}
-    {!!Html::script('js/myjscargando.js')!!}
+    <?php echo Html::script('js/myjs.js'); ?>
+
+    <?php echo Html::script('js/myjscargando.js'); ?>
+
     <script>
      
       function activareditor(){   
@@ -94,11 +91,3 @@
     </div>
   </div>
 </div>
-
-       
- 
-
-
-
-
-@endsection

@@ -104,7 +104,7 @@ $(document).on("change",".email_archivo",function(e){
             },
             //una vez finalizado correctamente
             success: function(data){
-              var codigo='<div class="mailbox-attachment-info"><a href="#" class="mailbox-attachment-name"><i class="fa fa-paperclip"></i>'+ data +'</a><span class="mailbox-attachment-size"> </span></div>';
+              var codigo='<div class="mailbox-attachment-info"><a href="#" class="mailbox-attachment-name"><i class="fa fa-paperclip"></i>'+data+'</a><span class="mailbox-attachment-size"> </span></div>';
               $("#"+divresul+"").html(codigo);
 
 
