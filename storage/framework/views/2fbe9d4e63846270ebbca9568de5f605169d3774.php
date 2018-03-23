@@ -1,6 +1,12 @@
+<?php echo $__env->make('alerts.cargando', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+
+<?php echo $__env->make('convocatoriasactivas.modalN', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+
+
+  <?php $__env->startSection('contenido'); ?>
+
 <!-- Modal -->
-<div id="ModalAdjuntar" data-backdrop="static" class="modal fade" role="dialog">
-  <div class="modal-dialog modal-md">
+<div id="ModalAdjuntar">
     <!-- Modal content-->
     <div class="modal-content">
 
@@ -12,7 +18,7 @@
              <div class="row">
 
             
-            <div class="col-md-12"> 
+            <div class="col-md-12">
 
 
             <form  id="f_enviar_correo" name="f_enviar_correo"  action="enviar_correo"  class="formarchivo" enctype="multipart/form-data" method="post" >
@@ -32,7 +38,7 @@
                         <input class="form-control" placeholder="Asunto:" id="asunto" name="asunto">
                       </div>-->
                       <div class="form-group">
-                        <textarea id="contenido_mail" name="contenido_mail" class="form-control" style="height: 200px">
+                        <textarea id="contenido_mail" name="contenido_mail" class="form-control" style="height: 200px" placeholder="escriba aquí...">
                          
                         </textarea>
                       </div>
@@ -67,7 +73,7 @@
                   </div><!-- /. box -->
 
               </form>
-            </div><!-- /.col -->
+            <!-- /.col -->
           </div><!-- /.row -->
               
    <script src="js/sistemalaravel.js"></script>
@@ -91,3 +97,13 @@
     </div>
   </div>
 </div>
+
+       
+ 
+
+
+
+
+<?php $__env->stopSection(); ?>
+
+<?php echo $__env->make('layouts.cpanelp', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
